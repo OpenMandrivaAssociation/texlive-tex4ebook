@@ -1,6 +1,6 @@
 Name:		texlive-tex4ebook
 Version:	62076
-Release:	1
+Release:	2
 Summary:	Converter from LaTeX to ebook formats
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/tex4ebook
