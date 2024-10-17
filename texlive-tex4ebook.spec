@@ -3,7 +3,7 @@ Version:	62076
 Release:	2
 Summary:	Converter from LaTeX to ebook formats
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/tex4ebook
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/tex4ebook
 License:	lppl1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tex4ebook.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tex4ebook.doc.r%{version}.tar.xz
