@@ -1,38 +1,25 @@
-Name:		texlive-tex4ebook
-Version:	62076
-Release:	2
+%global tl_name tex4ebook
+%global tl_revision 78132
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.4d
+Release:	%{tl_revision}.1
 Summary:	Converter from LaTeX to ebook formats
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/tex4ebook
+URL:		https://www.ctan.org/tex-archive/support/tex4ebook
 License:	lppl1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tex4ebook.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tex4ebook.doc.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/tex4ebook.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/tex4ebook.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Requires:	texlive(make4ht)
+Requires:	texlive(tex4ebook.bin)
+Requires:	tex4ht
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This is a bundle of Lua scripts and LaTeX packages for
-conversion of LaTeX files to ebook formats such as epub, mobi
-and epub3. tex4ht is used as the conversion engine.
+This is a bundle of Lua scripts and LaTeX packages for conversion of
+LaTeX files to ebook formats such as epub, mobi and epub3. tex4ht is
+used as the conversion engine.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_datadir}
-cp -a texmf-dist %{buildroot}%{_datadir}
-
-%files
-%{_texmfdistdir}/texmf-dist/tex/latex/tex4ebook
-%{_texmfdistdir}/texmf-dist/scripts/tex4ebook
-%doc %{_texmfdistdir}/texmf-dist/doc/support/tex4ebook
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
