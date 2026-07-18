@@ -1,5 +1,6 @@
 %global tl_name tex4ebook
 %global tl_revision 78132
+%global tl_bin_links tex4ebook:%{_texmfdistdir}/scripts/tex4ebook/tex4ebook
 
 Name:		texlive-%{tl_name}
 Epoch:		1
@@ -17,6 +18,8 @@ Requires:	texlive(make4ht)
 Requires:	texlive(tex4ebook.bin)
 Requires:	tex4ht
 Provides:	texlive(%{tl_name}) = %{tl_revision}
+Provides:	texlive(%{tl_name}.bin) = %{tl_revision}
+Provides:	texlive-%{tl_name}.bin = %{EVRD}
 
 %description
 This is a bundle of Lua scripts and LaTeX packages for conversion of
